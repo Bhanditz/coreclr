@@ -233,7 +233,7 @@ SEHProcessException(PEXCEPTION_POINTERS pointers)
                     {
                         // The exception happened in the page right below the stack limit,
                         // so it is a stack overflow
-                        write(STDERR_FILENO, StackOverflowMessage, sizeof(StackOverflowMessage) - 1);
+                        (void)write(STDERR_FILENO, StackOverflowMessage, sizeof(StackOverflowMessage) - 1);
                         PROCAbort();
                     }
                 }
